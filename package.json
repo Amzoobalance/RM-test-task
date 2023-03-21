@@ -1,0 +1,25 @@
+{
+  "name": "test-task",
+  "version": "0.0.0-dev",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node packages/api-service/index",
+    "db": "node prisma/data-fixtures/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andrey Orlov",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "prisma": "^4.11.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.11.0",
+    "cron": "^2.3.0",
+    "express": "^4.17.3",
+    "mysql2": "^3.2.0",
+    "node-fetch": "^2.6.9"
+  }
+}

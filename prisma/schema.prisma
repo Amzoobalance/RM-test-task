@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id       String     @id @default(uuid())
+  name     String
+  phone    String     @unique
+  email    String     @unique
+  gender   String
+  schedule Schedule[]
+}
+
+model Doctor {
+  id       String     @id @default(uuid())
+  name     String
+  spec     String
+  price    Int
+  schedule Schedule[]
+}
+
+model Schedule {
+  id         String   @id @default(uuid())
+  doctor     Doctor   @relation(fields: [doctor_id], references: [id])
+  doctor_id  String
+  date       String
+  time_from  Int
+  time_to    Int
+  is_free    Boolean
+  patient    Patient  @relation(fields: [patient_id], references: [id])
+  patient_id String
+  type       Int
+  fake_data  Boolean?
+}
