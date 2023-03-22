@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db": "npx prisma migrate dev --name init",
+    "data": "node prisma/data-fixtures/index",
     "start": "node packages/api-service/index",
-    "db": "node prisma/data-fixtures/index",
+    "dev": "npm run db & npm run data & npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +16,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@types/node-fetch": "^2.6.2",
+    "concurrently": "^7.6.0",
     "prisma": "^4.11.0"
   },
   "dependencies": {
