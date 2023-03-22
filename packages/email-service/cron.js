@@ -28,9 +28,9 @@ const checkScheduleInOneDay = async () =>
 
 const emailServiceJob = new CronJob(
   "30 * * * *",
-  () => {
+  async () => {
     console.log("Job started");
-    emailSender(checkScheduleInOneDay(), checkScheduleIn2Hours());
+    await emailSender(checkScheduleInOneDay(), checkScheduleIn2Hours());
     console.log("Job finished");
   },
   null,
